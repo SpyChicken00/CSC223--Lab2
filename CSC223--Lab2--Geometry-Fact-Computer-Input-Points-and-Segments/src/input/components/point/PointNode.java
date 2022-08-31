@@ -25,8 +25,9 @@ public class PointNode
 	 */
 	public PointNode(double x, double y)
 	{
-		// TODO
-				
+		_x = x;
+		_y = y;
+		_name = ANONYMOUS;
 	}
 
 	/**
@@ -37,7 +38,9 @@ public class PointNode
 	 */
 	public PointNode(String name, double x, double y)
 	{
-		// TODO
+		_x = x;
+		_y = y;
+		_name = name;
 	}
 
 	@Override
