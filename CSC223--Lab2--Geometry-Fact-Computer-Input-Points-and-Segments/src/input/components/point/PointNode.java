@@ -48,16 +48,28 @@ public class PointNode
 	{
 		return Double.valueOf(_x).hashCode() + Double.valueOf(_y).hashCode();
 	}
+	
 
 	@Override
-	public boolean equals(Object obj)
+    public boolean equals(Object obj)
 	{
-		// TODO
+		//check if obj is null
+		if(obj == null) return false;
+		//check if obj is an instance of PointNode
+		if (!(obj instanceof PointNode)) return false;
+		
+		//cast obj to PointNode data type
+		PointNode that = (PointNode)obj;
+		if (!(MathUtilities.doubleEquals(this._x, that._x))) return false;
+		if (!(MathUtilities.doubleEquals(this._y, that._y))) return false;
+		
+		return true;
+		
 	}
 
     @Override
     public String toString()
     {
-		// TODO
+    	return _name + "(" + _x + ", " + _y + ")";
 	}
 }
