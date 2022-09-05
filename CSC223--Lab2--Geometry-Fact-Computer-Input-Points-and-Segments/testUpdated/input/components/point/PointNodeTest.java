@@ -1,3 +1,11 @@
+/**
+ * Test cases for PointNode
+ * 
+ * <p>Bugs: 
+ * 
+ * @author Jace Rettig and James ???
+ * @Date 9-1-22
+ */
 package input.components.point;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -15,18 +23,24 @@ class PointNodeTest {
 		_nodeB = new PointNode("B", 1, 1);
 	}
 	
+	
+	/**
+	 * test if two notes have same point
+	 */
 	@Test
-	//test if two notes have same point
-	void testEqualsMethod() {
+	public void testEqualsMethod() {
 		assertTrue(_nodeA.equals(_nodeA2));
 		assertFalse(_nodeA.equals(_nodeB));
 	}
-	
+	/**
+	 * test toString method
+	 */
 	@Test
-	//test toString method
-	void testToString() {
+	public void testToString() {
 		assertEquals("A(0.0, 0.0)", _nodeA.toString());
 	}
+	
+
 	
 	
 

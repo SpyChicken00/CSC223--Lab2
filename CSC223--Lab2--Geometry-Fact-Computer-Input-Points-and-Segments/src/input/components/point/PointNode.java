@@ -1,3 +1,11 @@
+/**
+ * A PointNode object that stores x and y coordinates and a name
+ * 
+ * <p>Bugs: 
+ * 
+ * @author Jace Rettig and James ???
+ * @Date 9-1-22
+ */
 package input.components.point;
 
 import utilities.math.MathUtilities;
@@ -64,7 +72,6 @@ public class PointNode
 		if (!(MathUtilities.doubleEquals(this._y, that._y))) return false;
 		
 		return true;
-		
 	}
 
     @Override
