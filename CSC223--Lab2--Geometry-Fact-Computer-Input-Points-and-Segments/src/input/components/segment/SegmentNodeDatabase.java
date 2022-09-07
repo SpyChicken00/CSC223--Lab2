@@ -70,7 +70,6 @@ public class SegmentNodeDatabase {
 		//turn into set
 		//Add point as the key as d list as the "value" pair to _adjLists
 		_adjLists.put(point, this.listToSet(list));
-		//need to check that list values are unique to fit into set?
 	}
 	
 	
@@ -80,12 +79,21 @@ public class SegmentNodeDatabase {
 	
 	public List<SegmentNode> asSegmentList() {
 		
-		List<SegmentNode> l = new ArrayList<SegmentNode>();
+		List<SegmentNode> segmentList = new ArrayList<SegmentNode>();
+		SegmentNode tempSegment = new SegmentNode(null, null);
+		PointNode tempPoint = new PointNode(null, null);
+		
 		//loop through each map value and retrieve list
-		_adjLists.forEach((node, list) -> 
+		_adjLists.forEach((node, set) -> 
 			//System.out.println("Test") 
-			l.add()
+			//iterate through set
+			//Iterator it = set.iterator();
+			
+		
+			//loop through set PointNode (iterate)
+				segmentList.add(node, tempPoint )
 		);
+		return segmentList;
 		//loop thnrough each map value and retrieve list
 		//for (PointNode node: _adjLists)
 			//for each value and list value create a segment and add to segmentList?
