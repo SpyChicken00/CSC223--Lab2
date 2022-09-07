@@ -49,6 +49,6 @@ public class SegmentNode
 	
 	@Override
 	public String toString() {
-		return _point1.getName() + " -- " + _point2.getName();
+		return _point1.getName() + _point2.getName();
 	}
 }

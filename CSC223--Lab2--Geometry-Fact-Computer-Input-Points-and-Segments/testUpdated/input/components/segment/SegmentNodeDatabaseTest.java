@@ -55,7 +55,7 @@ class SegmentNodeDatabaseTest {
     	return db;
     }
 	
-	/*
+	
 	@Test
 	void testNumUndirectedEdges()
 	{
@@ -63,7 +63,28 @@ class SegmentNodeDatabaseTest {
 		
 		assertEquals(10, db.numUndirectedEdges());
 	}
-	*/
+	
+	
+	/*
+	@Test
+	void testAddDirectedEdge() {
+		
+		PointNode a = new PointNode("A", 3, 6);
+    	PointNode b = new PointNode("B", 2, 4);
+    	PointNode c = new PointNode("C", 4, 4);
+
+    	PointNode d = new PointNode("D", 0, 0);
+    	PointNode e = new PointNode("E", 6, 0);
+    	PointNode x = new PointNode("X", 3, 3);
+
+    	SegmentNodeDatabase db = new SegmentNodeDatabase();
+    	
+    	db.addDirectedEdge(a, b);
+    	
+
+		
+	} */
+
 	
 	/**
 	 * test addAdjacencyList and list to set helper method
@@ -75,6 +96,7 @@ class SegmentNodeDatabaseTest {
 	
 	/*
 	@Test //temp test for converting list to set
+	//check that values in set are unique
 	public void testListtoSet() {
 		
 		List<PointNode> l = new ArrayList<PointNode>();

@@ -63,9 +63,9 @@ class SegmentNodeTest {
 	 */
 	@Test
 	public void testToString() {
-		assertEquals("A -- B", _segment1.toString());
-		assertEquals("C -- D", _segment2.toString());
-		assertEquals("E -- F", _segment3.toString());
+		assertEquals("AB", _segment1.toString());
+		assertEquals("CD", _segment2.toString());
+		assertEquals("EF", _segment3.toString());
 	}
 
 }
