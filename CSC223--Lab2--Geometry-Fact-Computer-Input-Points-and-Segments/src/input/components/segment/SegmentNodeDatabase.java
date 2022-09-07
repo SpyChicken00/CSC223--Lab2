@@ -3,7 +3,7 @@
  * 
  * <p>Bugs: 
  * 
- * @author Jace Rettig and James ???
+ * @author Jace Rettig and James Crawford
  * @Date 9-1-22
  */
 package input.components.segment;
