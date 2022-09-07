@@ -60,7 +60,6 @@ public class SegmentNodeDatabase {
 		return nodeSet;
 	}
 	
-	
 	/**
 	 * Adds a new adjacencyList to adjLists
 	 * @param point- point to add
@@ -74,11 +73,21 @@ public class SegmentNodeDatabase {
 		//need to check that list values are unique to fit into set?
 	}
 	
+	
+	
+	
+	
+	
 	public List<SegmentNode> asSegmentList() {
 		
 		List<SegmentNode> l = new ArrayList<SegmentNode>();
 		//loop through each map value and retrieve list
-		for (PointNode node: )
+		_adjLists.forEach((node, list) -> 
+			//System.out.println("Test") 
+			l.add()
+		);
+		//loop thnrough each map value and retrieve list
+		//for (PointNode node: _adjLists)
 			//for each value and list value create a segment and add to segmentList?
 		
 		
