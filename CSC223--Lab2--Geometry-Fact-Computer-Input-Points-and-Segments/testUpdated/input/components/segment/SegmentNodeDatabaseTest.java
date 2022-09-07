@@ -10,6 +10,11 @@ package input.components.segment;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import org.junit.jupiter.api.Test;
 
 import input.components.point.PointNode;
@@ -23,7 +28,7 @@ class SegmentNodeDatabaseTest {
     	//    B___C                               
     	//   / \ / \                              
     	//  /   X   \ 
-    	// D_________E
+    	// D___/_\___E
     	//
 		//
     	PointNode a = new PointNode("A", 3, 6);
@@ -49,7 +54,8 @@ class SegmentNodeDatabaseTest {
     	
     	return db;
     }
-
+	
+	/*
 	@Test
 	void testNumUndirectedEdges()
 	{
@@ -57,4 +63,52 @@ class SegmentNodeDatabaseTest {
 		
 		assertEquals(10, db.numUndirectedEdges());
 	}
+	*/
+	
+	/**
+	 * test addAdjacencyList and list to set helper method
+	 */
+	@Test
+	public void testAddAdjacencyList() {
+		
+	}
+	
+	/*
+	@Test //temp test for converting list to set
+	public void testListtoSet() {
+		
+		List<PointNode> l = new ArrayList<PointNode>();
+		PointNode a = new PointNode("A", 3, 6);
+    	PointNode b = new PointNode("B", 2, 4);
+    	PointNode c = new PointNode("C", 4, 4);
+
+    	PointNode d = new PointNode("D", 0, 0);
+    	PointNode e = new PointNode("E", 6, 0);
+    	PointNode x = new PointNode("X", 3, 3);
+    	PointNode x2 = new PointNode("X", 3, 3);
+    	
+    	SegmentNodeDatabase db = new SegmentNodeDatabase();
+    	
+    	
+		l.add(a);
+		l.add(b);
+		l.add(c);
+		l.add(d);
+		l.add(e);
+		l.add(x);
+		l.add(x);
+		l.add(x);
+		Set<PointNode> nodeSet = new HashSet<PointNode>();
+		nodeSet = db.listToSet(l);
+		
+		for (PointNode p:nodeSet) {
+			System.out.println(p);
+		}
+		
+		
+		
+		
+	}
+	**/
+	
 }
