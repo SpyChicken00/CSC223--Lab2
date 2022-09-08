@@ -135,5 +135,14 @@ class SegmentNodeDatabaseTest {
 		
 	}
 	**/
+	@Test
+	public void testAsSegmentEdge() {
+		
+	}
+	
+	@Test
+	public void testasUniqueSegmentList() {
+		
+	}
 	
 }
