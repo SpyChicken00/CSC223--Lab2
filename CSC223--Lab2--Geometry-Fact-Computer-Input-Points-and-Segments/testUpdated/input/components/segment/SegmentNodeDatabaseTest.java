@@ -54,8 +54,27 @@ class SegmentNodeDatabaseTest {
     	
     	return db;
     }
-	
-	
+	/**
+	 * Builds a simple triangle to facilitate testing
+	 * @return segmentNodeDatabase for triangle
+	 */
+	public SegmentNodeDatabase buildTriangle () {
+		//       A
+		//      / \
+		//	   B___C
+		
+		PointNode a = new PointNode("A", 1, 2);
+    	PointNode b = new PointNode("B", 0, 0);
+    	PointNode c = new PointNode("C", 2, 0);
+		
+		SegmentNodeDatabase db = new SegmentNodeDatabase();
+		
+		db.addUndirectedEdge(a, b);
+    	db.addUndirectedEdge(a, c);
+    	db.addUndirectedEdge(b, c);
+    	
+		return db;
+	}
 	
 	
 	@Test
