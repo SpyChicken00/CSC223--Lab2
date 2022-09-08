@@ -56,12 +56,15 @@ class SegmentNodeDatabaseTest {
     }
 	
 	
+	
+	
 	@Test
 	void testNumUndirectedEdges()
 	{
 		SegmentNodeDatabase db = build();
 		
 		assertEquals(10, db.numUndirectedEdges());
+		//test node pointing to itself?
 	}
 	
 	

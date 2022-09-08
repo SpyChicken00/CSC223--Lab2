@@ -55,7 +55,7 @@ public class SegmentNodeDatabase {
 			_adjLists.put(pt1, nodeSet);
 			_adjLists.get(pt1).add(pt2);
 		} 
-		else if (_adjLists.get(pt1).contains(pt2)) {
+		else if (_adjLists.get(pt1).contains(pt2) || pt1.equals(pt2)) {
 			
 		}
 		else {
@@ -78,7 +78,7 @@ public class SegmentNodeDatabase {
 	 * @param list of pointNodes
 	 * @return set of PointNodes
 	 */
-	public Set<PointNode> listToSet(List<PointNode> list) {
+	private Set<PointNode> listToSet(List<PointNode> list) {
 		Set<PointNode> nodeSet = new HashSet<PointNode>();
 		for (PointNode node: list) {
 			nodeSet.add(node);
@@ -111,9 +111,6 @@ public class SegmentNodeDatabase {
 			//loop through list values
 			for (PointNode value: OuterPoint.getValue()) {
 				SegmentNode tempSegment = new SegmentNode(OuterPoint.getKey(), value);
-				//TODO TEMP
-				System.out.print(tempSegment.toString());
-				//TODO TEMP
 				segmentList.add(tempSegment);
 			}
 		}
@@ -122,9 +119,19 @@ public class SegmentNodeDatabase {
 		
 		
 	}
-	
-	private boolean hasDirectedSegment(PointNode start, PointNode end) {
-		//determine if 
+	/**
+	 * Determines
+	 * @param start
+	 * @param end
+	 * @param segmentList
+	 * @return
+	 */
+	private boolean hasDirectedSegment(PointNode start, PointNode end, List<SegmentNode> segmentList) {
+		SegmentNode segmentReversed = new SegmentNode(end, start);
+		//check if compliment is in list
+		if (segmentList.contains(segmentReversed)) return true;
+		//if not false
+		return false;
 	}
 	
 	public List<SegmentNode> asUniqueSegmentList() {
@@ -136,10 +143,9 @@ public class SegmentNodeDatabase {
 			//loop through list values
 			for (PointNode value: OuterPoint.getValue()) {
 				SegmentNode tempSegment = new SegmentNode(OuterPoint.getKey(), value);
-				if (this.hasDirectedSegment()) {
+				if (!(this.hasDirectedSegment(OuterPoint.getKey(), value, segmentList))) {
 					segmentList.add(tempSegment);
 				}
-				
 			}
 		}
 		
