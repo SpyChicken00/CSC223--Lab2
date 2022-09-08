@@ -197,10 +197,15 @@ class SegmentNodeDatabaseTest {
 	public void testDirectedEdgeThrow() {
 		try {
 			
+			SegmentNodeDatabase db = build();
+			PointNode a = new PointNode("A", 3, 6);
+			//code to throw exception
+			db.addUndirectedEdge(a, a);
 			
 			
-			
-			
+			fail();
+		} catch (ArithmeticException ex) {
+			assertEquals("Invalid Edge", ex.getMessage());
 		}
 	}
 	
