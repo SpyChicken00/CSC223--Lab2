@@ -3,7 +3,7 @@
  * 
  * <p>Bugs: 
  * 
- * @author Jace Rettig and James ???
+ * @author Jace Rettig and James Crawford
  * @Date 9-1-22
  */
 package input.components.segment;
@@ -76,14 +76,20 @@ class SegmentNodeDatabaseTest {
 		return db;
 	}
 	
-	
+	/**
+	 * tests the numUndirectedEdges method
+	 */
 	@Test
 	void testNumUndirectedEdges()
 	{
 		SegmentNodeDatabase db = build();
+		SegmentNodeDatabase triangle = buildTriangle();
+		
 		
 		assertEquals(10, db.numUndirectedEdges());
+		assertEquals(3, triangle.numUndirectedEdges());
 		//test node pointing to itself?
+		//empty database/ no edges? 
 	}
 	
 	
