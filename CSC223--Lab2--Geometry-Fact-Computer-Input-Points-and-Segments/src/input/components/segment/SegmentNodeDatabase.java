@@ -21,7 +21,6 @@ public class SegmentNodeDatabase {
 	private Map<PointNode, Set<PointNode>> _adjLists;
 	
 	public SegmentNodeDatabase() {
-		//TODO what kind of map should the adjList be
 		_adjLists = new HashMap<PointNode, Set<PointNode>>();
 	}
 	
@@ -29,11 +28,13 @@ public class SegmentNodeDatabase {
 		_adjLists = m;
 	}
 	
+	/**
+	 * Calculates the number of undirectedEdges in the database
+	 * @return the number of undirected edges
+	 */
 	public int numUndirectedEdges() {
 		int numUndirectedEdges = 0;
 		//count number of pairs in adjLists
-		
-		
 		//returns set of every entry pair
 		for (Map.Entry<PointNode, Set<PointNode>> OuterPoint: _adjLists.entrySet()) {
 			for (PointNode value: OuterPoint.getValue()) {
@@ -42,30 +43,35 @@ public class SegmentNodeDatabase {
 				}	
 			}
 		}
-		_adjLists.entrySet();
 		//divide by 2 to remove duplicates
 		numUndirectedEdges = numUndirectedEdges / 2;
 		return numUndirectedEdges;
 	}
 	
+	/**
+	 * Helper method to add a one way/directed edge from two given points
+	 * @param pt1
+	 * @param pt2
+	 */
 	private void addDirectedEdge(PointNode pt1, PointNode pt2) {
-		//TODO
 		if (_adjLists.get(pt1) == null) {
 			Set<PointNode> nodeSet = new HashSet<PointNode>();
 			_adjLists.put(pt1, nodeSet);
 			_adjLists.get(pt1).add(pt2);
 		} 
 		else if (_adjLists.get(pt1).contains(pt2) || pt1.equals(pt2)) {
-			
 		}
 		else {
 			_adjLists.get(pt1).add(pt2);
 		}
-		
 	}
 	
+	/**
+	 * Adds an undirectedEdge from two given points
+	 * @param pt1
+	 * @param pt2
+	 */
 	public void addUndirectedEdge(PointNode pt1, PointNode pt2) {
-		//TODO
 		//Call directed edge twice, makes 1 directed edge
 		addDirectedEdge(pt1, pt2);
 		addDirectedEdge(pt2, pt1);
@@ -92,19 +98,17 @@ public class SegmentNodeDatabase {
 	 * @param list- list of points that point is next to
 	 */
 	public void addAdjacencyList(PointNode point, List<PointNode> list) {
-		//TODO error checking
 		//turn into set
 		//Add point as the key as d list as the "value" pair to _adjLists
 		_adjLists.put(point, this.listToSet(list));
 	}
 	
 	
-	
-	
-	
-	//TODO TEST
+	/**
+	 * Creates a list of segmentNodes based on the adjacency lists, including duplicates
+	 * @return segmentList
+	 */
 	public List<SegmentNode> asSegmentList() {
-		
 		List<SegmentNode> segmentList = new ArrayList<SegmentNode>();
 		//loop through each list in adjLists
 		for (Map.Entry<PointNode, Set<PointNode>> OuterPoint: _adjLists.entrySet()) {
@@ -114,17 +118,15 @@ public class SegmentNodeDatabase {
 				segmentList.add(tempSegment);
 			}
 		}
-		
 		return segmentList;
-		
 		
 	}
 	/**
-	 * Determines
-	 * @param start
-	 * @param end
+	 * Helper Method to check if a segment's compliment exists in the list 
+	 * @param start of segment
+	 * @param end of segment
 	 * @param segmentList
-	 * @return
+	 * @return True if the segmentList contains the reversed segment
 	 */
 	private boolean hasDirectedSegment(PointNode start, PointNode end, List<SegmentNode> segmentList) {
 		SegmentNode segmentReversed = new SegmentNode(end, start);
@@ -134,9 +136,12 @@ public class SegmentNodeDatabase {
 		return false;
 	}
 	
+	/**
+	 * Creates a list of unique segmentNodes based on the adjacency lists
+	 * @return a unique segmentList
+	 */
 	public List<SegmentNode> asUniqueSegmentList() {
 		//unique, CANNOT have duplicate segments
-		
 		List<SegmentNode> segmentList = new ArrayList<SegmentNode>();
 		//loop through each list in adjLists
 		for (Map.Entry<PointNode, Set<PointNode>> OuterPoint: _adjLists.entrySet()) {
@@ -148,7 +153,6 @@ public class SegmentNodeDatabase {
 				}
 			}
 		}
-		
 		return segmentList;
 	}
 	
