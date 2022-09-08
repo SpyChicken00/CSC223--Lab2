@@ -51,14 +51,16 @@ public class SegmentNodeDatabase {
 	 * Helper method to add a one way/directed edge from two given points
 	 * @param pt1
 	 * @param pt2
+	 * @throws Exception 
 	 */
-	private void addDirectedEdge(PointNode pt1, PointNode pt2) {
+	private void addDirectedEdge(PointNode pt1, PointNode pt2)  {
 		if (_adjLists.get(pt1) == null) {
 			Set<PointNode> nodeSet = new HashSet<PointNode>();
 			_adjLists.put(pt1, nodeSet);
 			_adjLists.get(pt1).add(pt2);
 		} 
 		else if (_adjLists.get(pt1).contains(pt2) || pt1.equals(pt2)) {
+			throw new ArithmeticException("Invalid Edge");
 		}
 		else {
 			_adjLists.get(pt1).add(pt2);
