@@ -164,6 +164,18 @@ class SegmentNodeDatabaseTest {
 	 * tests the AsSegmentEdge method
 	 */
 	@Test
+	public void testDirectedEdgeThrow() {
+		try {
+			
+			
+			
+			
+			
+		}
+	}
+	
+	
+	@Test
 	public void testAsSegmentEdge() {
 		SegmentNodeDatabase db = buildTriangle();
 		
