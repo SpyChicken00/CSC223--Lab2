@@ -152,6 +152,17 @@ public class SegmentNodeDatabase {
 		return segmentList;
 	}
 	
+	public String segmentListToString(List<SegmentNode> list) {
+		String segList ="";
+		if (list.size() < 0) return null;
+		
+		for (SegmentNode sn : list)
+		{
+			segList += sn.toString() + " ";
+		}
+		return segList;
+	}
+	
 	
 	
 }
