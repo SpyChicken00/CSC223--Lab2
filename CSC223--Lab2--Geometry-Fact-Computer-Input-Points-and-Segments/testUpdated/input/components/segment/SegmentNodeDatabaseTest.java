@@ -9,14 +9,9 @@
 package input.components.segment;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-
 import org.junit.jupiter.api.Test;
-
 import input.components.point.PointNode;
 
 class SegmentNodeDatabaseTest {
