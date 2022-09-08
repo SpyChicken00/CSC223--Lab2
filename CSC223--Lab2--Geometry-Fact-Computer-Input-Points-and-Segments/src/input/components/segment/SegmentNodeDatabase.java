@@ -155,6 +155,7 @@ public class SegmentNodeDatabase {
 		}
 		return segmentList;
 	}
+	
 	/**
 	 * Converts the list of segmentNodes into a string of the segmentedNodes
 	 * @param list of segmentNodes
