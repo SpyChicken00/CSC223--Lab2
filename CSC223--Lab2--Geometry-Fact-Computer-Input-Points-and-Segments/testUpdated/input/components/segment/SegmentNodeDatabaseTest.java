@@ -160,6 +160,9 @@ class SegmentNodeDatabaseTest {
 		
 	}
 	**/
+	/**
+	 * tests the AsSegmentEdge method
+	 */
 	@Test
 	public void testAsSegmentEdge() {
 		SegmentNodeDatabase db = buildTriangle();
@@ -167,6 +170,9 @@ class SegmentNodeDatabaseTest {
 		assertEquals("AB AC BA BC CA CB ", db.segmentListToString(db.asSegmentList()));
 	}
 	
+	/**
+	 * tests the asUniqueSegmentList method
+	 */
 	@Test
 	public void testasUniqueSegmentList() {
 		SegmentNodeDatabase db = buildTriangle();
