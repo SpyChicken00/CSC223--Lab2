@@ -10,7 +10,10 @@ package input.components.segment;
 
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
 import org.junit.jupiter.api.Test;
 import input.components.point.PointNode;
 
@@ -75,6 +78,31 @@ class SegmentNodeDatabaseTest {
     	
 		return db;
 	}
+	
+	public SegmentNodeDatabase testConstructor2() {
+		//TODO need to test 2nd constructor
+		return new SegmentNodeDatabase();
+	}
+	
+	/**
+	 * Converts the list of segmentNodes into a string of the segmentedNodes
+	 * @param list of segmentNodes
+	 * @return the list in string form
+	 */
+	//TODO MAKE STATIC OR PUT IN TEST CLASS
+	//placement does not make sense
+	public String segmentListToString(List<SegmentNode> list) {
+		String segList ="";
+		if (list.size() < 0) return null;
+		
+		for (SegmentNode sn : list)
+		{
+			segList += sn.toString() + " ";
+		}
+		return segList;
+	}
+	
+	//TODO build square/ square with x to test too?
 	
 	/**
 	 * tests the numUndirectedEdges method
@@ -214,7 +242,7 @@ class SegmentNodeDatabaseTest {
 	public void testAsSegmentEdge() {
 		SegmentNodeDatabase db = buildTriangle();
 		
-		assertEquals("AB AC BA BC CA CB ", db.segmentListToString(db.asSegmentList()));
+		assertEquals("AB AC BA BC CA CB ", segmentListToString(db.asSegmentList()));
 	}
 	
 	/**
@@ -224,7 +252,7 @@ class SegmentNodeDatabaseTest {
 	public void testasUniqueSegmentList() {
 		SegmentNodeDatabase db = buildTriangle();
 		
-		assertEquals("AB AC BC ", db.segmentListToString(db.asUniqueSegmentList()));
+		assertEquals("AB AC BC ", segmentListToString(db.asUniqueSegmentList()));
 	}
 	
 }

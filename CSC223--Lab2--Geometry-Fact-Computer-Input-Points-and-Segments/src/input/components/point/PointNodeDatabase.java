@@ -14,14 +14,14 @@ import java.util.Set;
 
 public class PointNodeDatabase {
 	protected Set<PointNode> _points;
-	
+
 	/**
 	 * Creates a empty set of pointNodes
 	 */
 	public PointNodeDatabase() {
 		_points = new LinkedHashSet<PointNode>();
 	}
-	
+
 	/**
 	 * Creates a new set of pointNodes with an existing 
 	 * list of pointNodes
@@ -30,17 +30,16 @@ public class PointNodeDatabase {
 	public PointNodeDatabase(List<PointNode> l) {
 		_points = new LinkedHashSet<PointNode>(l);
 	}
-	
+
 	/**
 	 * Adds a pointNode to the database
 	 * @param p- the pointNode to add
 	 */
 	public void put(PointNode p) {
 		//if item already in set
-		if (!(_points.add(p))) return;
 		_points.add(p);
 	}
-	
+
 	/**
 	 * Checks if the set contains a specific pointNode
 	 * @param p- the pointNode in question
@@ -49,7 +48,7 @@ public class PointNodeDatabase {
 	public boolean contains(PointNode p) {
 		return _points.contains(p);
 	}
-	
+
 	/**
 	 * Checks if a set contains a specific set of
 	 * Coordinates as a node
@@ -63,16 +62,22 @@ public class PointNodeDatabase {
 		//compare
 		return _points.contains(new PointNode(x, y));
 	}
-	
+
 	/**
 	 * Gets the name of a pointNode
 	 * @param p- the desired pointNode
 	 * @return the name as a string
 	 */
 	public String getName(PointNode p) {
-		return p.getName();
+		//find ACTUAL name of corresponding point
+		//a(0,0)
+		//DATABASE b(0,0)
+		//return name b
+
+		//CALL getName with p x and y
+		return this.getName(p.getX(), p.getY());
 	}
-	
+
 	/**
 	 * Gets the name of a pointNode if it exists, otherwise creates
 	 * a new pointNode and returns the default name of that point
@@ -84,25 +89,27 @@ public class PointNodeDatabase {
 		//create a new node with inputs
 		PointNode newP = new PointNode(x, y);
 		//if set already contains node
-		if (_points.contains(newP)) {
-			//convert set to array and find point in array, then return point's name
-			for(Object point:_points.toArray()) {
-				if (point.equals(newP)) {
-					return ((PointNode) point).getName();
-				}
+		if (!(_points.contains(newP))) return newP.getName(); //if not containment
+
+		//convert set to array and find point in array, then return point's name
+		for(PointNode point:_points) {
+			if (point.equals(newP)) {
+				return ((PointNode) point).getName();
 			}
-		} 
+		}
 		//return default name
 		return newP.getName();
 	}
-	
+
 	/**
 	 * Gets a point Node
 	 * @param p- the Node to get
 	 * @return the retrieved node
 	 */
 	public PointNode getPoint(PointNode p) {
-		return p;
+		//find ACTUAL point obj with those coords in database
+		//call getPoint(x, y)
+		return this.getPoint(p.getX(), p.getY());
 	}
 	/**
 	 * Gets a point Node with specified coordinates
@@ -113,17 +120,18 @@ public class PointNodeDatabase {
 	public PointNode getPoint(double x, double y) {
 		//create a new node with inputs
 		PointNode newP = new PointNode(x, y);
-		//if set already contains node
-		if (_points.contains(newP)) {
-			//convert set to array and find point in array, then return point
-			for(Object point:_points.toArray()) {
-				if (point.equals(newP)) {
-					return (PointNode) point;
-				}
+		//if set does not contain newP
+		if (!(_points.contains(newP))) return newP;
+		
+		//convert set to array and find point in array, then return point
+		for(Object point:_points.toArray()) {
+			if (point.equals(newP)) {
+				return (PointNode) point;
 			}
-		} 
+		}
+		//return newP.
 		return newP;
 	}
-		
-	
+
+
 }

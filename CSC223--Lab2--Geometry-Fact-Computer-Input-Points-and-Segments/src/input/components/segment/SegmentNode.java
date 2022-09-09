@@ -39,8 +39,8 @@ public class SegmentNode
 		//cast obj to segment data type
 		SegmentNode that = (SegmentNode)obj;
 		//check if segment points are identical
-		if (!(this._point1.equals(that._point1))) return false;
-		if (!(this._point2.equals(that._point2))) return false;
+		if (!(this._point1.equals(that._point1) || this._point1.equals(that._point2))) return false;
+		if (!(this._point2.equals(that._point2) || this._point2.equals(that._point1))) return false;
 		
 		//must be equal
 		return true;

@@ -1,11 +1,3 @@
-/**
- * A database to store segment nodes
- * 
- * <p>Bugs: 
- * 
- * @author Jace Rettig and James Crawford
- * @Date 9-1-22
- */
 package input.components.segment;
 
 import java.util.ArrayList;
@@ -16,6 +8,14 @@ import java.util.Map;
 import java.util.*;
 import input.components.point.*;
 
+/**
+ * A database to store segment nodes
+ * 
+ * <p>Bugs: Constructor SegmentNodeDatabase taking in a pre-existing map may not function properly
+ * 
+ * @author Jace Rettig and James Crawford
+ * @Date 9-1-22
+ */
 public class SegmentNodeDatabase {
 	private Map<PointNode, Set<PointNode>> _adjLists;
 	
@@ -24,7 +24,14 @@ public class SegmentNodeDatabase {
 	}
 	
 	public SegmentNodeDatabase(Map<PointNode, Set<PointNode>> m) {
-		_adjLists = m;
+		//TODO make copy of m
+		//_adjLists = m;
+		
+		//makes a copy of m so that data will not be altered
+		//MAY NOT WORK PROPERLY
+		for (Map.Entry<PointNode, Set<PointNode>> OuterPoint:m.entrySet()) {
+				_adjLists.put(OuterPoint.getKey(), OuterPoint.getValue());		
+		}
 	}
 	
 	/**
@@ -53,15 +60,20 @@ public class SegmentNodeDatabase {
 	 * @param pt2
 	 * @throws Exception 
 	 */
+	//TODO this needs comments
 	private void addDirectedEdge(PointNode pt1, PointNode pt2)  {
+		//fresh adj list for pt1
 		if (_adjLists.get(pt1) == null) {
 			Set<PointNode> nodeSet = new HashSet<PointNode>();
 			_adjLists.put(pt1, nodeSet);
 			_adjLists.get(pt1).add(pt2);
 		} 
+		//adjList already contains point/point is identical
 		else if (_adjLists.get(pt1).contains(pt2) || pt1.equals(pt2)) {
+			//TODO Dr Alvin: why is this throwing an exception
 			throw new ArithmeticException("Invalid Edge");
 		}
+		//add pt2 to pt1 adj list
 		else {
 			_adjLists.get(pt1).add(pt2);
 		}
@@ -157,21 +169,7 @@ public class SegmentNodeDatabase {
 		return segmentList;
 	}
 	
-	/**
-	 * Converts the list of segmentNodes into a string of the segmentedNodes
-	 * @param list of segmentNodes
-	 * @return the list in string form
-	 */
-	public String segmentListToString(List<SegmentNode> list) {
-		String segList ="";
-		if (list.size() < 0) return null;
-		
-		for (SegmentNode sn : list)
-		{
-			segList += sn.toString() + " ";
-		}
-		return segList;
-	}
+	
 	
 	
 	

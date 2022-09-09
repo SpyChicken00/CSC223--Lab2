@@ -39,7 +39,7 @@ class SegmentNodeTest {
 		_segment1 = new SegmentNode(_nodeA, _nodeB);
 		_segment2 = new SegmentNode(_nodeC, _nodeD);
 		_segment3 = new SegmentNode(_nodeE, _nodeF);
-		_segment1A = new SegmentNode(_nodeA, _nodeB);
+		_segment1A = new SegmentNode(_nodeB, _nodeA);
 		_segment2A = new SegmentNode(_nodeC, _nodeD);
 		_segment3A = new SegmentNode(_nodeE, _nodeF);
 		
